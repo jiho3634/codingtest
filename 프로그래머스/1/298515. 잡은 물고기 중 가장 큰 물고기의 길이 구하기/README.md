@@ -1,6 +1,19 @@
 # [level 1] 잡은 물고기 중 가장 큰 물고기의 길이 구하기 - 298515 
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/298515) 
+## 포인트
+
+데이터 뒤에 글자를 추가하는 방법.
+CONCAT(MAX(LENGTH), 'cm')
+
+CONCAT 함수를 사용할 때 숫자를 문자열과 결합하면, 숫자의 기본 형식이 적용되어 문자열로 변환됩니다. 
+특히, FLOAT 타입의 숫자 데이터를 문자열로 변환하면 기본적으로 소수점 이하 자릿수가 표시될 수 있습니다. 
+
+소수점 없이 출력 (정수만 표시):
+CONCAT(FLOOR(MAX(LENGTH)), 'cm')
+
+소수점 N 자리까지 표시:
+CONCAT(FORMAT(MAX(LENGTH), 2), 'cm')
 
 ### 성능 요약
 
