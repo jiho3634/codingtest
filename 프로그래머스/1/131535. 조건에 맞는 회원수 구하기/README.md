@@ -2,6 +2,11 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131535) 
 
+##포인트
+WHERE YEAR(JOINED)=2021 AND AGE BETWEEN 20 AND 29;
+교집합을 구할 때는 AND로 조건을 나열하면 된다.
+JOINED는 DATE 형식이므로 YEAR(JOINED) 형식으로 연도를 추출할 수 있다. 
+
 ### 성능 요약
 
 메모리: 0.0 MB, 시간: 0.00 ms
