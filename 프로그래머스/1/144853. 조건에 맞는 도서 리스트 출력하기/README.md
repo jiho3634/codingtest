@@ -2,6 +2,16 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/144853) 
 
+##포인트
+DATE_FORMAT(PUBLISHED_DATE, %Y-%m-%d);
+형식에서 대소문자의 기능이 다르다.
+Y => 2021
+y => 21
+M => October
+m => 10
+D => 24th
+d => 24
+
 ### 성능 요약
 
 메모리: 0.0 MB, 시간: 0.00 ms
