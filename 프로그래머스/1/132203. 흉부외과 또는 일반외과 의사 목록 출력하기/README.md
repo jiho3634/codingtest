@@ -2,6 +2,10 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/132203) 
 
+## 포인트
+날짜형식 변환: DATE(DATE_YMD)로 SELECT 했을 때는 시간이 없어지지 않아서 DATE_FORMAT(HIRE_YMD, '%Y-%m-%d')을 이용해서 시간을 제거함.
+속성값 변환: 날짜형식 변환을 하면 속성값이 그대로 나온다. 그래서 AS로 속성명을 바꿔준다.
+
 ### 성능 요약
 
 메모리: 0.0 MB, 시간: 0.00 ms
