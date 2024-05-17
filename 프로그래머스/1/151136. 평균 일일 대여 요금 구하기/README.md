@@ -2,6 +2,12 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/151136) 
 
+## 포인트
+ROUND(AVG(DAILY_FEE), 0)
+ROUND - 반올림하여 소수점 몇 번째 자리까지 표현할 것인가.
+0 - 정수부분만 표현
+AVG - 평균
+
 ### 성능 요약
 
 메모리: 0.0 MB, 시간: 0.00 ms
