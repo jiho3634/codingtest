@@ -1,0 +1,7 @@
+SELECT 
+    ROUND(AVG(
+        CASE
+            WHEN LENGTH THEN LENGTH
+            ELSE 10
+        END),2) AS AVERAGE_LENGTH
+FROM FISH_INFO;
