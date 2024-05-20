@@ -1,0 +1,8 @@
+SELECT *
+FROM (
+    SELECT ID, LENGTH
+    FROM FISH_INFO
+    ORDER BY LENGTH DESC, ID ASC
+    LIMIT 10
+) AS subquery
+WHERE subquery.LENGTH > 10;
