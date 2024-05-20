@@ -3,15 +3,23 @@
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/151138) 
 
 ## 포인트
+<p>
+  <code>CASE</code>
+  <br>
+  WHEN condition1 THEN result1
+  <br>
+  WHEN condition2 THEN result2
+  <br>
+  ...
+  <br>
+  ELSE default_result
+  <br>
+  END
+</p>
+<p>
+  <code>DATEDIFF</code> 함수는 SQL에서 두 날짜 간의 차이를 계산하는 데 사용되는 함수입니다.
+</p>
 
-CASE
-    WHEN condition1 THEN result1
-    WHEN condition2 THEN result2
-    ...
-    ELSE default_result
-END
-
-DATEDIFF 함수는 SQL에서 두 날짜 간의 차이를 계산하는 데 사용되는 함수입니다. 
 
 ### 성능 요약
 
