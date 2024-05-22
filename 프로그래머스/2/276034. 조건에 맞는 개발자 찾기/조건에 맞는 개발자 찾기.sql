@@ -1,12 +1,13 @@
-SELECT 
-    distinct d.ID,
+SELECT DISTINCT
+    d.ID,
     d.EMAIL,
     d.FIRST_NAME,
     d.LAST_NAME
-FROM 
+FROM
     DEVELOPERS d
+JOIN
+    SKILLCODES s ON (d.SKILL_CODE & s.CODE) = s.CODE
 WHERE
-    (d.SKILL_CODE & 256) = 256 OR 
-    (d.SKILL_CODE & 1024) = 1024
-ORDER BY 
+    s.NAME IN ('Python', 'C#')
+ORDER BY
     d.ID ASC;
