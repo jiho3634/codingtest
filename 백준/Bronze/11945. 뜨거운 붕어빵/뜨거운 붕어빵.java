@@ -1,14 +1,34 @@
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int M = scan.nextInt();
-        while(scan.hasNext()) {
-            StringBuffer sb = new StringBuffer(scan.next());
-            String r = sb.reverse().toString();
-            System.out.println(r);
+        Scanner scanner = new Scanner(System.in);
+        
+        int N = 0, M = 0;
+        if (scanner.hasNextInt()) {
+            N = scanner.nextInt();
         }
-        scan.close();
+        if (scanner.hasNextInt()) {
+            M = scanner.nextInt();
+        }
+        if (N == 0 || M == 0) {
+            scanner.close();
+            return; // 더 이상 실행할 필요가 없으므로 종료
+        }
+        scanner.nextLine(); // 줄바꿈 문자 처리
+        for (int i = 0; i < N; i++) {
+            if (!scanner.hasNextLine()) {
+                System.out.println("Insufficient input.");
+                break;
+            }
+            String line = scanner.nextLine();
+            StringBuilder reversed = new StringBuilder();
+            for (int j = M - 1; j >= 0; j--) {
+                reversed.append(line.charAt(j));
+            }
+            System.out.println(reversed.toString());
+        }
+
+        scanner.close();
     }
 }
