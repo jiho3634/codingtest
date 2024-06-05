@@ -1,17 +1,10 @@
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
-        int N = 0, M = 0;
-        if (scanner.hasNextInt()) {
-            N = scanner.nextInt();
-        }
-        if (scanner.hasNextInt()) {
-            M = scanner.nextInt();
-        }
-        if (N == 0 || M == 0) {
+        int N = scanner.nextInt();
+        int M = scanner.nextInt();
+        if (N == 0) {
             scanner.close();
             return; // 더 이상 실행할 필요가 없으므로 종료
         }
