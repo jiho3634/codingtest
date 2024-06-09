@@ -1,19 +1,10 @@
 import java.util.Scanner;
-
-public class Main{
-    public static void main(String[] s){
-        Scanner sc = new java.util.Scanner(System.in);
-        while (sc.hasNextLine()) {
-            String[] line = sc.nextLine().trim().split(" ");
-            if (line.length < 2)
-                continue;
-            int n = Integer.parseInt(line[0]);
-            for (int j = 0; j < line[1].length(); j++) {
-                for (int i = 0; i < n; i++)
-                    System.out.print(line[1].charAt(j));
-            }
-            System.out.println();
+public class Main {
+    public static void main(String[] args) {
+        var sc = new Scanner(System.in);
+        for (int i = sc.nextInt(); i > 0; i--) {
+            int n = sc.nextInt();
+            System.out.println(sc.next().replaceAll(".", "$0".repeat(n)));
         }
-
     }
 }
