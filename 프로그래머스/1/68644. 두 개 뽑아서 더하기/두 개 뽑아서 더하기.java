@@ -1,30 +1,18 @@
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 class Solution {
     public int[] solution(int[] numbers) {
-        int len = numbers.length;
-        int[] arr = new int[len * (len - 1) / 2];
-        int index = 0;
-        for (int i = 0; i < len - 1; i++) {
-            for (int j = i + 1; j < len; j++) {
-                int n = numbers[i] + numbers[j];
-                if (index == 0) {
-                    arr[index] = n;
-                    index++;
-                }
-                else {
-                    for (int k = 0; k < index; k++) {
-                        if (arr[k] == n) {
-                            break;
-                        }
-                        if (k == index - 1) {
-                            arr[index] = n;
-                            index++;
-                        }
-                    }
-                }
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < numbers.length - 1; i++) {
+            for (int j = i + 1; j < numbers.length; j++) {
+                int sum = numbers[i] + numbers[j];
+                if (!list.contains(sum))
+                    list.add(sum);
             }
         }
-        int[] answer = java.util.Arrays.copyOfRange(arr, 0, index);
-        java.util.Arrays.sort(answer);
+        list.sort(Comparator.naturalOrder());
+        int[] answer = list.stream().mapToInt(Integer::intValue).toArray();
         return answer;
     }
 }
