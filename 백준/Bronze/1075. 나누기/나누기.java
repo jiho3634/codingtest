@@ -4,11 +4,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        long N = scanner.nextLong();
+        int N = scanner.nextInt();
         int F = scanner.nextInt();
         
         // 마지막 두 자리를 00으로 설정한 기본값을 만듭니다.
-        long base = (N / 100) * 100;
+        int base = (N / 100) * 100;
 
         int result = 0;
         
