@@ -16,14 +16,13 @@ public class Main {
         int b = Integer.parseInt(lines[1]);
 
         String arr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        List<Character> line = new ArrayList<>();
+        StringBuffer sb = new StringBuffer();
         while (n > 0) {
             char c = arr.charAt(n % b);
-            line.add(0, c);
+            sb.insert(0, c);
             n /= b;
         }
-        for (Character c : line)
-            bw.write(c);
+        bw.write(sb.toString());
         bw.flush();
         bw.close();
         br.close();
