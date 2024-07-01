@@ -4,40 +4,53 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Main {
+    private static final Set<Integer> ALL_NUMBERS = IntStream.rangeClosed(1, 20).boxed().collect(Collectors.toSet());
+    
+    public enum Command {
+        ADD, REMOVE, CHECK, TOGGLE, ALL, EMPTY
+    }
+    
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        Map<String, Integer> map = new HashMap<>();
+        
         Set<Integer> set = new HashSet<>();
-        map.put("add", 0);
-        map.put("remove", 1);
-        map.put("check", 2);
-        map.put("toggle", 3);
-        map.put("all", 4);
-        map.put("empty", 5);
+        Map<String, Command> commandMap = Map.of(
+            "add", Command.ADD,
+            "remove", Command.REMOVE,
+            "check", Command.CHECK,
+            "toggle", Command.TOGGLE,
+            "all", Command.ALL,
+            "empty", Command.EMPTY
+        );
+        
         int n = Integer.parseInt(br.readLine());
         while (n-- > 0) {
             String[] line = br.readLine().split(" ");
-            switch (map.get(line[0])) {
-                case 0:
-                    set.add(Integer.parseInt(line[1]));
+            Command command = commandMap.get(line[0]);
+            int number = line.length > 1 ? Integer.parseInt(line[1]) : 0;
+            
+            switch (command) {
+                case ADD:
+                    set.add(number);
                     break;
-                case 1:
-                    set.remove(Integer.parseInt(line[1]));
+                case REMOVE:
+                    set.remove(number);
                     break;
-                case 2:
-                    bw.write(set.contains(Integer.parseInt(line[1])) ? "1\n" : "0\n");
+                case CHECK:
+                    bw.write(set.contains(number) ? "1\n" : "0\n");
                     break;
-                case 3:
-                    if (set.contains(Integer.parseInt(line[1]))) {
-                        set.remove(Integer.parseInt(line[1]));
+                case TOGGLE:
+                    if (set.contains(number)) {
+                        set.remove(number);
                     } else {
-                        set.add(Integer.parseInt(line[1]));
-                    } break;
-                case 4:
-                    set.addAll(IntStream.rangeClosed(1, 20).boxed().collect(Collectors.toSet()));
+                        set.add(number);
+                    }
                     break;
-                case 5:
+                case ALL:
+                    set.addAll(ALL_NUMBERS);
+                    break;
+                case EMPTY:
                     set.clear();
                     break;
             }
