@@ -1,21 +1,23 @@
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 class Solution {
     public String solution(String[] participant, String[] completion) {
-        String answer = "";
-        Map<String, Integer> map = new HashMap<>();
-        for (String s : completion) {
-            map.put(s, map.getOrDefault(s, 0) + 1);
-        }
-        for (String s : participant) {
-            if (map.containsKey(s) && map.get(s) > 0) {
-                map.put(s, map.get(s) - 1);
+        Map<String, Integer> map = Arrays.stream(participant)
+                .collect(Collectors.toMap(name -> name, name -> 1, Integer::sum));
+
+        // 완주한 사람들의 이름을 Map에서 감소시킴
+        for (String c : completion) {
+            int count = map.get(c) - 1;
+            if (count == 0) {
+                map.remove(c);
+            } else {
+                map.put(c, count);
             }
-            else if (!map.containsKey(s) || map.get(s) == 0) {
-                answer += s + " ";
-            }
         }
-        answer = answer.strip();
-        return answer;
+
+        // 완주하지 못한 사람을 찾아서 반환
+        return map.keySet().iterator().next();
     }
 }
